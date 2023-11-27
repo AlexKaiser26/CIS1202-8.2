@@ -5,7 +5,6 @@
 #include <cctype>
 #include <iostream>
 
-
 char character(const char start, int offset)
 {
 	if (!std::isalpha(start))
@@ -22,6 +21,17 @@ char character(const char start, int offset)
 
 	std::string e = "invalidRangeException";
 	throw e;
+}
+
+template <typename T>
+T half(T number)
+{
+	return number / 2;
+}
+
+int half(int number)
+{
+	return std::round(static_cast<double>(number) / 2.0f);
 }
 
 int main()
@@ -49,4 +59,8 @@ int main()
 	{
 		std::cout << "Offsetting ? by 5 failed: " << exception << std::endl;
 	}
+
+	std::cout << half(7.0) << std::endl;
+	std::cout << half(5.0f) << std::endl;
+	std::cout << half(3) << std::endl;
 }
